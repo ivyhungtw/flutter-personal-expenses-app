@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 
 class NewTransaction extends StatelessWidget {
 
+  // accept function pointer passed by user_transaction
+  final Function addTx;
   // controller listens to and saves user input automatically
   final titleController = TextEditingController();
   final amountController = TextEditingController();
+
+  NewTransaction(this.addTx);
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +35,10 @@ class NewTransaction extends StatelessWidget {
                   ),
                   ), 
                   onPressed: () {
-                    print(titleController.text);
-                    print(amountController.text);
+                    addTx(
+                      titleController.text, 
+                      double.parse(amountController.text)
+                    );
                   }, )
               ]
             ),

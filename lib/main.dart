@@ -71,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _userTransaction.add(newTx);
     });
   }
+
   void _startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx, 
@@ -78,6 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
         return NewTransaction(_addNewTransaction);
       }
     );
+  }
+
+  void _deleteTransaction(String id) {
+    setState(() {
+      _userTransaction.removeWhere((tx) => tx.id == id);
+    });
   }
 
   @override
@@ -98,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Chart(_recentTransactions),
-            TransactionList(_userTransaction)
+            TransactionList(_userTransaction, _deleteTransaction)
           ],
         ),
       ),

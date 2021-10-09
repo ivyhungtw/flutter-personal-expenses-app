@@ -18,6 +18,17 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.purple,
         ).copyWith(
           secondary: Colors.amber
+        ),
+        fontFamily: 'Quicksand',
+        textTheme: ThemeData.light().textTheme.copyWith(
+          headline6: TextStyle(fontFamily: 'OpenSans', fontWeight: FontWeight.bold, fontSize: 18)
+        ),
+        appBarTheme: AppBarTheme(
+          titleTextStyle: TextStyle(
+              fontFamily: 'OpenSans', 
+              fontSize: 20,
+              fontWeight: FontWeight.bold
+            )
         )
       ),
       home: MyHomePage(),
@@ -32,12 +43,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransaction = [
-    Transaction(id: 't1', title: 'New Shoes', amount: 39.99, date: DateTime.now()),
-    Transaction(id: 't2', title: 'Grocery', amount: 150.99, date: DateTime.now()),
-    Transaction(id: 't1', title: 'New Shoes', amount: 39.99, date: DateTime.now()),
-    Transaction(id: 't2', title: 'Grocery', amount: 150.99, date: DateTime.now()),
-    Transaction(id: 't1', title: 'New Shoes', amount: 39.99, date: DateTime.now()),
-    Transaction(id: 't2', title: 'Grocery', amount: 150.99, date: DateTime.now()),
+    // Transaction(id: 't1', title: 'New Shoes', amount: 39.99, date: DateTime.now()),
+    // Transaction(id: 't2', title: 'Grocery', amount: 150.99, date: DateTime.now()),
+    // Transaction(id: 't1', title: 'New Shoes', amount: 39.99, date: DateTime.now()),
+    // Transaction(id: 't2', title: 'Grocery', amount: 150.99, date: DateTime.now()),
+    // Transaction(id: 't1', title: 'New Shoes', amount: 39.99, date: DateTime.now()),
+    // Transaction(id: 't2', title: 'Grocery', amount: 150.99, date: DateTime.now()),
   ];
 
   void _addNewTransaction(String txTitle, double txAmount) {
@@ -65,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+        title: Text('Personal Expenses', style: TextStyle(fontFamily: 'Open Sans'),),
         actions: <Widget>[
           IconButton(
             onPressed: () => _startAddNewTransaction(context), 
